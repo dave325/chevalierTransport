@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo('charset'); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="<?php bloginfo('description');?>"> 
+<title><?php wp_title(' | '); ?></title>
+<?php wp_head(); ?>
+<!--  (function($){
+	// Automaticall relocates user to mobile site if they are using a smartphone 
+	if ($(window).width() < 968){
+		window.location.replace('http://m.daviddataram.com');
+	}
+	if ($(window).width() < 968){
+		$('footer').append('<a href="http://m.daviddataram.com" class="pull-right">View Destop version</a>');
+	}
+})(jQuery);-->
+<script type="text/javascript">
+
+
+jQuery(document).ready(function(){
+	var j = jQuery;
+	j('#upper-header-nav a, #footer-nav a').addClass('col-md-2 col-lg-2');
+});
+</script>
+
+</head>
+<body <?php body_class()?>>
+<div class="container col-md-12 col-lg-12">
+<header class="col-md-12 col-lg-12">
+<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="<?php echo ddata_get_header_image_alt();?>" />
+
+<?php 
+		$ddata_upper_nav_menu = array(
+			'theme-location' => 'upper-header-nav-menu',
+			'container' => 'nav',
+			'container_class' => 'col-md-12 col-lg-12',
+			'container_id' => 'upper-header-nav',
+			'menu_class' => 'col-md-offset-1 col-lg-offset-1'
+		);
+	?>
+	<?php wp_nav_menu($ddata_upper_nav_menu);?>
+	</header>
